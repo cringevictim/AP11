@@ -21,4 +21,4 @@ int main()
     free(mas);
     mas = NULL;
     return 0;
-}
+}//some tests for git
