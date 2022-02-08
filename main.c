@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#define _CRT_SECURE_NO_WARNINGS
 
 int main()
 {
@@ -8,14 +10,28 @@ int main()
     scanf("%d",&len);
 
     char *mas = NULL;
-    mas = (char *)malloc(sizeof(char)*len);
+    mas = malloc(sizeof(char)*len);
     
     printf("Enter the string: ");
-    scanf("%s",mas);
+    gets(mas);
     
+
     for(int i = 0; i < len; i++) 
     {
-        printf("%c",mas[i]);
+        if(isalpha(mas[i]))
+        {
+            printf("Letter [i: %d]\n", i);
+        }
+        else 
+        {
+            if(ispunct(mas[i])) {
+               printf("Symbol [i: %d]\n", i); 
+            }
+            else 
+            {
+                printf("NULL [i: %d]\n", i);
+            }
+        }
     }
     
     free(mas);
